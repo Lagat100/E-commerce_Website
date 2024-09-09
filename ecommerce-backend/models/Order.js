@@ -1,4 +1,4 @@
-// Order.js
+// Order model to store the order details in the database using mongoose schema.
 const mongoose = require('mongoose');
 
 const OrderSchema = new mongoose.Schema({
