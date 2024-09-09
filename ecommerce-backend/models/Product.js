@@ -1,4 +1,4 @@
-// Product.js
+// Product model to store the product details in the database using mongoose schema.
 const mongoose = require('mongoose');
 
 const ProductSchema = new mongoose.Schema({
