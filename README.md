@@ -1,7 +1,9 @@
 E-commerce Website
 
 Table of Contents
+
     Project Setup
+
 Backend Development (Node.js & Express)
 1. Project Initialization
 2. Set Up MongoDB Connection
@@ -11,4 +13,5 @@ Backend Development (Node.js & Express)
 6. Implement Stripe Integration
 
 Connecting Frontend and Backend
+
 Deployment Considerations
