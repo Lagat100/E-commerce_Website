@@ -1,4 +1,4 @@
-// User.js
+// User model to store the user details in the database using mongoose schema.
 const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
