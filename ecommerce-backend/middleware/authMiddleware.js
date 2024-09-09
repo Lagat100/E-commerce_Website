@@ -1,4 +1,4 @@
-// authMiddleware.js
+// authMiddleware is a middleware function that checks if the user is authenticated by verifying the token sent in the request header. If the token is valid, it decodes the token and sets the user id in the request object. If the token is invalid, it sends a 401 status code with a message 'Token is not valid'.
 const jwt = require('jsonwebtoken');
 
 const authMiddleware = (req, res, next) => {
