@@ -1,4 +1,4 @@
-// orderRoutes.js
+// orderRoutes
 const express = require('express');
 const Order = require('../models/Order');
 const authMiddleware = require('../middleware/authMiddleware');
