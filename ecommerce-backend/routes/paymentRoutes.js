@@ -1,4 +1,4 @@
-// paymentRoutes will handle all the payment related routes like creating a payment intent, etc.
+// paymentRoutes will handle all the payment related routes like creating a payment intent, etc
 const express = require('express');
 const { createPaymentIntent } = require('../controllers/paymentController');
 const authMiddleware = require('../middleware/authMiddleware');
