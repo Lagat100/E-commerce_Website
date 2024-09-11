@@ -1,4 +1,4 @@
-// productRoutes
+// productRoutes is a router that handles all the routes related to products.
 const express = require('express');
 const Product = require('../models/Product');
 
