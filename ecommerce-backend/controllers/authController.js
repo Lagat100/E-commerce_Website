@@ -3,7 +3,7 @@ const User = require('../models/User');
 const bcrypt = require('bcryptjs');    
 const jwt = require('jsonwebtoken');    
 
-const JWT_SECRET = process.env.JWT_SECRET || 'your_jwt_secret_key';
+const JWT_SECRET = process.env.JWT_SECRET;
 
 const generateToken = (user) => {
   return jwt.sign(
@@ -17,7 +17,7 @@ const generateToken = (user) => {
 };
 
 const register = async (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email, password, country, region } = req.body;
 
   try {
     const existingUser = await User.findOne({ email });
@@ -30,7 +30,9 @@ const register = async (req, res) => {
     const user = await User.create({
       name,
       email,
-      password: hashedPassword
+      password: hashedPassword,
+      country,
+      region
     });
 
     const token = generateToken(user);
