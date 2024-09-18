@@ -80,30 +80,4 @@ const login = async (req, res) => {
   }
 };
 
-// Example of a protected route that requires JWT authentication
-const getUserProfile = async (req, res) => {
-  try {
-    const user = await User.findById(req.user.id); // req.user comes from the JWT middleware
-    if (!user) {
-      return res.status(404).json({ message: 'User not found' });
-    }
-
-    res.status(200).json({
-      user: {
-        id: user._id,
-        name: user.name,
-        email: user.email
-      }
-    });
-  } catch (error) {
-    res.status(500).json({ message: 'Server error', error: error.message });
-  }
-};
-
-module.exports = {
-  register,
-  login,
-  getUserProfile
-};
-
 module.exports = { register, login };
