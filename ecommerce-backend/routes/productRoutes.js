@@ -1,29 +1,17 @@
 // productRoutes is a router that handles all the routes related to products.
 const express = require('express');
-const Product = require('../models/Product');
+const { createProduct, updateProduct, deleteProduct, getProducts } = require('../controllers/productController');
+const protect = require('../middleware/authMiddleware');
+const admin = require('../middleware/adminMiddleware');
 
 const router = express.Router();
 
-// Get all products
-router.get('/', async (req, res) => {
-  try {
-    const products = await Product.find();
-    res.json(products);
-  } catch (error) {
-    res.status(500).json({ message: 'Server error' });
-  }
-});
+// Only admins can create, update, and delete products
+router.post('/create', protect, admin, createProduct);
+router.put('/:id', protect, admin, updateProduct);
+router.delete('/:id', protect, admin, deleteProduct);
 
-// Create a new product (admin only)
-router.post('/', async (req, res) => {
-  const { name, description, price, imageUrl, stock } = req.body;
-  try {
-    const newProduct = new Product({ name, description, price, imageUrl, stock });
-    await newProduct.save();
-    res.status(201).json(newProduct);
-  } catch (error) {
-    res.status(500).json({ message: 'Server error' });
-  }
-});
+// Public route to get products
+router.get('/', getProducts);
 
 module.exports = router;
