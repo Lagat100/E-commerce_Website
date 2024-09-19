@@ -32,7 +32,8 @@ const register = async (req, res) => {
       email,
       password: hashedPassword,
       country,
-      region
+      region,
+      role
     });
 
     const token = generateToken(user);
