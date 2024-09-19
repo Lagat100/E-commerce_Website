@@ -94,8 +94,8 @@ POST /api/register
 Content-Type: application/json
 {
   "name": "John Doe",
-  "email": "johndoe@example.com",
-  "password": "password123"
+  "email": "johndoe@gmail.com",
+  "password": "password"
 }
 ```
 
@@ -104,8 +104,8 @@ Content-Type: application/json
 POST /api/login
 Content-Type: application/json
 {
-  "email": "johndoe@example.com",
-  "password": "password123"
+  "email": "johndoe@gmail.com",
+  "password": "password"
 }
 ```
 
