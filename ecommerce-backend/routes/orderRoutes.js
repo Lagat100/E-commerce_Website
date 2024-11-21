@@ -6,11 +6,12 @@ const authMiddleware = require('../middleware/authMiddleware');
 const router = express.Router();
 
 // Create an order
-router.post('/', authMiddleware, async (req, res) => {
-  const { products, totalAmount, shippingAddress } = req.body;
-  try {
+router.post('/', async (req, res) => {
+  const { user, products, totalAmount, shippingAddress } = req.body;
+  console.log(req.body);
+   try {
     const newOrder = new Order({
-      user: req.user,
+      user,
       products,
       totalAmount,
       shippingAddress,
@@ -18,6 +19,7 @@ router.post('/', authMiddleware, async (req, res) => {
     await newOrder.save();
     res.status(201).json(newOrder);
   } catch (error) {
+    console.log(error);
     res.status(500).json({ message: 'Server error' });
   }
 });
