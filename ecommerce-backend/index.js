@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const userRouter = require('./routes/userRoutes')
 
 dotenv.config();
 
@@ -23,6 +24,7 @@ app.use('/api/orders', orderRoutes);
 const paymentRoutes = require('./routes/paymentRoutes');
 
 app.use('/api/payment', paymentRoutes);
+app.use(userRouter)
 
 
 // Middleware
